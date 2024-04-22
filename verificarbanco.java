@@ -10,7 +10,7 @@ public class verificarbanco {
         Boolean Cliente = true;
         String NomeDoUsuario = "Hendreu";
         String TipoDeConta = "Saque";
-        double DinheiroNaConta = 0;
+        double DinheiroNaConta = 50;
         double Receber = 0;
         double Transferencia = 0;
 
@@ -36,11 +36,17 @@ public class verificarbanco {
                 Receber = dinheiro.nextDouble();
                 DinheiroNaConta += Receber;
                 System.out.println("Seu novo saldo é de:"+ DinheiroNaConta);
+
         } else if (botoes == 3){
                 System.out.println("Valor a se transferir");
                 Transferencia = dinheiro.nextDouble();
-                DinheiroNaConta -= Transferencia;
-                System.out.println("Seu novo saldo é de:"+ DinheiroNaConta);
+                    if (DinheiroNaConta < Transferencia ){
+                        System.out.println("O valor precisa ser positivo para efetuar a Transação");
+                    } else {
+                        Transferencia = dinheiro.nextDouble();
+                        DinheiroNaConta -= Transferencia;
+                        System.out.println("Seu novo saldo é de:"+ DinheiroNaConta);
+                }
         } else{
                 System.out.println("Obrigado por sua operação");
 
